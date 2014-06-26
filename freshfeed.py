@@ -4,8 +4,8 @@ import requests, os
 from flask import Flask, render_template
 app = Flask(__name__)
 
-domain = os.environ('FRESHDESK_DOMAIN')
-username = os.environ('FRESHDESK_USERNAME')
+domain = os.environ['FRESHDESK_DOMAIN']
+username = os.environ['FRESHDESK_USERNAME']
 password = os.getenv('FRESHDESK_PASSWORD', 'X')
 url="http://%s/helpdesk/tickets/filter/all_tickets?format=json" % (domain)
 
