@@ -23,8 +23,16 @@
             font-weight: normal;
             white-space: nowrap;
         }
-        .datagrid table tbody .even td {
+        .datagrid table tbody .Medium td {
             background: #E1EEF4;
+            color: #00496B;
+        }
+        .datagrid table tbody .High td {
+            background: #FFFF84;
+            color: #00496B;
+        }
+        .datagrid table tbody .Urgent td {
+            background: #FFBBB2;
             color: #00496B;
         }
         .datagrid table tbody td:first-child {
@@ -40,9 +48,12 @@
     <table>
     <tbody>
     {% for ticket in tickets %}
-    <tr class="{{ loop.cycle('odd', 'even') }}">
-        <td>
+    <tr class="{{ticket['priority_name']}}">
+        <td class="subject">
             {{ticket['subject']}}
+        </td>
+        <td class="agent">
+            {{ticket['responder_name']}}
         </td>
     </tr>
     {% endfor %}
