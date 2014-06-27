@@ -1,4 +1,4 @@
-# !/usr/bin/python
+#!/usr/bin/python
 
 import requests, os
 from flask import Flask, render_template, redirect, url_for
