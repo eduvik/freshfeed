@@ -53,11 +53,11 @@ def do_awaiting_collection():
     display_tickets = []
 
     for ticket in get_all_tickets():
-        if ticket['status_name'] == 'Resolved' and ticket['custom_field']['cf_device_submitted_1956']:
+        if ticket['status_name'] == 'Ready For Collection':
             display_tickets.append(ticket)
 
     def weight(ticket):
-        return -ticket['priority'], -ticket['display_id']
+        return -ticket['display_id']
 
     return render_template('awaiting_collection.html', tickets=sorted(display_tickets, key=weight))
 
