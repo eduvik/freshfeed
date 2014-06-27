@@ -1,18 +1,18 @@
+body {
+    font: normal 12px/150% Geneva, Arial, Helvetica, sans-serif;
+    background: #fff;
+}
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
 .datagrid table {
     border-collapse: collapse;
     text-align: left;
     table-layout: fixed;
     width: 100%;
 }
-body {
-    font: normal 12px/150% Geneva, Arial, Helvetica, sans-serif;
-}
-h1 {
-    font-size: 40px;
-    font-weight: bold;
-}
 .datagrid {
-    background: #fff;
     overflow: hidden;
 }
 .datagrid table td, .datagrid table th {
