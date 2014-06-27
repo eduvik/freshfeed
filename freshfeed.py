@@ -31,7 +31,7 @@ def get_all_tickets():
 
 @app.route("/")
 def index():
-    return redirect(url_for('tickets'))
+    return redirect(url_for('do_tickets'))
 
 
 @app.route("/tickets")
