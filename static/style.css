@@ -1,0 +1,52 @@
+.datagrid table {
+    border-collapse: collapse;
+    text-align: left;
+    table-layout: fixed;
+    width: 100%;
+}
+body {
+    font: normal 12px/150% Geneva, Arial, Helvetica, sans-serif;
+}
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+.datagrid {
+    background: #fff;
+    overflow: hidden;
+}
+.datagrid table td, .datagrid table th {
+    padding: 20px;
+}
+.datagrid table tbody td {
+    color: #00496B;
+    border-left: 1px solid #E1EEF4;
+    font-size: 32px;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.datagrid table tbody .Medium td {
+    background: #E1EEF4;
+    color: #00496B;
+}
+.datagrid table tbody .High td {
+    background: #FFFF84;
+    color: #00496B;
+}
+.datagrid table tbody .Urgent td {
+    background: #FFBBB2;
+    color: #00496B;
+}
+.datagrid table tbody tr .subject {
+    width: 80%;
+}
+.datagrid table tbody tr .no_agent{
+    font-weight: bold;
+}
+.datagrid table tbody td:first-child {
+    border-left: none;
+}
+.datagrid table tbody tr:last-child td {
+    border-bottom: none;
+}

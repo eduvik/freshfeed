@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tickets</title>
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+<div class="datagrid">
+    <table>
+    <tbody>
+    {% for ticket in tickets %}
+    <tr class="{{ticket['priority_name']}}">
+        <td class="subject">
+            {{ticket['subject']}}
+        </td>
+        <td class="agent{% if ticket['responder_id'] is none %} no_agent{% endif %}">
+            {{ticket['responder_name']}}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </ul>
+</div>
+</body>
+</html>

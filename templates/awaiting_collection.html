@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Awaiting Collection</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+<h1>Ready to Collect</h1>
+<div class="datagrid">
+    <table>
+    <tbody>
+    {% for ticket in tickets %}
+    <tr>
+        <td>
+            {{ticket['requester_name']}}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </ul>
+</div>
+</body>
+</html>
