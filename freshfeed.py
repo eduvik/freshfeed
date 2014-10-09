@@ -20,7 +20,8 @@ def get_all_tickets():
     page = 1
 
     while more_tickets:
-        r = requests.get("%s&page=%d" % (url, page), auth=(username, password))
+
+        r = requests.get("%s&page=%d" % (url, page), auth=(username, password), headers={'content-type': 'application/json'})
         new_tickets = r.json()
         all_tickets.extend(new_tickets)
         if len(new_tickets) < MAX_TICKETS_PER_PAGE:
