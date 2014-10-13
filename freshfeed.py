@@ -5,16 +5,23 @@ from flask import Flask, render_template, redirect, url_for
 
 MAX_TICKETS_PER_PAGE = 30
 
+#these are site-specific; change as required
+TICKET_VIEW_OPEN="313844"
+TICKET_VIEW_READY_FOR_COLLECTION="314401"
+
 app = Flask(__name__)
 
 domain = os.environ['FRESHDESK_DOMAIN']
 username = os.environ['FRESHDESK_USERNAME']
 password = os.getenv('FRESHDESK_PASSWORD', 'X')
-url = "http://%s/helpdesk/tickets/filter/all_tickets?format=json" % (domain)
 tickets = []
 
 
-def get_all_tickets():
+def get_tickets(view=None):
+    if view:
+        url = "http://%s/helpdesk/tickets/view/%s?format=json" % (domain, view)
+    else:
+        url = "http://%s/helpdesk/tickets/filter/all_tickets?format=json" % (domain)
     all_tickets = []
     more_tickets = True
     page = 1
@@ -38,7 +45,7 @@ def index():
 def do_tickets():
     display_tickets = []
 
-    for ticket in get_all_tickets():
+    for ticket in get_tickets(TICKET_VIEW_OPEN):
         if ticket['status_name'] == 'Open':
             display_tickets.append(ticket)
 
@@ -52,7 +59,7 @@ def do_tickets():
 def do_awaiting_collection():
     display_tickets = []
 
-    for ticket in get_all_tickets():
+    for ticket in get_tickets(TICKET_VIEW_READY_FOR_COLLECTION):
         if ticket['status_name'] == 'Ready For Collection':
             display_tickets.append(ticket)
 
